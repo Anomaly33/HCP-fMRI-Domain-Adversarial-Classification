@@ -41,7 +41,7 @@ We adopt the classic DANN architecture with three components:
 
 ---
 
-## Results (on a subset of HCP data)
+## 🔬 Results (on a subset of HCP data)
 - **Validation Accuracy:** **96.88%**  
 - **Test Accuracy:** **96.62%**  
 - **ROC AUC:** **0.9922**  
@@ -85,3 +85,17 @@ This will:
   
 ---
 ## 📊 Evaluation
+After training (or using a pretrained model), run:
+```bash
+python evaluate.py --data_path data/HCP_emotion_4D_sample.mat \
+                   --model_path best_dann.pth \
+                   --pca_scaler pca_scaler.joblib \
+                   --out_dir results \
+                   --device cpu
+```
+Outputs include:
+
+- `metrics.json` (accuracy, AUC, AP, confusion matrix)  
+- `roc_curve.png`  
+- `pr_curve.png`  
+- `tsne_features.png`
