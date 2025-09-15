@@ -13,15 +13,17 @@ The model learns **domain-invariant** features across subjects and reaches **96.
 
 ---
 
-## Overview
-Functional MRI signals vary widely across individuals, which causes a **train-test mismatch** and limits generalization. This project applies **domain-adversarial training** to push the feature extractor toward **domain invariance**, improving cross-subject performance compared to standard CNN/Transformer baselines.
+## 📌 Overview
+Functional MRI (fMRI) signals vary widely across individuals, making generalization challenging.  
+This project applies **domain-adversarial training** (DANN) to align source and target distributions via a **Gradient Reversal Layer (GRL)**.  
+Compared to CNN/Transformer baselines, DANN significantly improves cross-subject classification.
 
-**Highlights**
-- Compact, readable **PyTorch** implementation of DANN  
-- **CPU-friendly** training option; GPU supported if available  
-- **Pretrained models** for quick evaluation  
-- **Visualization utilities** (ROC, PR, feature space)  
-- Clean command-line interface and reproducible defaults
+**Key features:**
+- Clean **PyTorch** DANN implementation  
+- **Two-script structure** (`train.py` + `evaluate.py`)  
+- **Pretrained models** for reproducibility  
+- **Plots & metrics** (ROC, PR, t-SNE)  
+- Compatible with both `.mat` and `.npz` datasets  
 
 ---
 
