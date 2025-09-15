@@ -49,3 +49,39 @@ We adopt the classic DANN architecture with three components:
 
 - The feature space shows clear separation between classes, indicating effective domain alignment and minimal subject-specific leakage.
 ![t-SNE Visualization](results/t-SNE_visual.png)
+
+## ⚙️ Setup
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/<your-username>/hcp-fmri-domain-adversarial-classification.git
+cd hcp-fmri-domain-adversarial-classification
+```
+### 2. Create Environment
+```bash
+python -m venv .venv
+source .venv/bin/activate    # Linux/Mac
+# On Windows: .venv\Scripts\activate
+```
+### 3. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+---
+
+## 🚀 Training
+```bash
+python train.py --data_path data/HCP_emotion_4D_sample.mat \
+                --epochs 10 \
+                --batch_size 64 \
+                --lr 1e-3 \
+                --pca_components 500 \
+                --device cpu
+```
+This will:
+- Train the DANN model
+- Save the best weights to best_dann.pth
+- Save preprocessing (RobustScaler + PCA) to pca_scaler.joblib
+  
+---
+## 📊 Evaluation
