@@ -13,3 +13,36 @@ The model learns **domain-invariant** features across subjects and reaches **96.
 
 ---
 
+## Overview
+Functional MRI signals vary widely across individuals, which causes a **train-test mismatch** and limits generalization. This project applies **domain-adversarial training** to push the feature extractor toward **domain invariance**, improving cross-subject performance compared to standard CNN/Transformer baselines.
+
+**Highlights**
+- Compact, readable **PyTorch** implementation of DANN  
+- **CPU-friendly** training option; GPU supported if available  
+- **Pretrained models** for quick evaluation  
+- **Visualization utilities** (ROC, PR, feature space)  
+- Clean command-line interface and reproducible defaults
+
+---
+
+## Method
+We adopt the classic DANN architecture with three components:
+
+1. **Feature Extractor**: maps fMRI inputs (optionally PCA-reduced) to latent features.  
+2. **Label Predictor**: classifies *face* vs *shape* from the latent features (supervised on source).  
+3. **Domain Discriminator**: distinguishes **source** vs **target** features; connected via a **Gradient Reversal Layer (GRL)** so the extractor learns domain-invariant representations.
+
+**Training pipeline**
+1. **Preprocess** fMRI (robust scaling + **PCA**).  
+2. **Adversarial training** on labeled source and **unlabeled target** (only `X_test` used for domain alignment; no target labels).  
+3. **Evaluate** on held-out subjects and generate plots.
+
+---
+
+## Results
+- **Validation Accuracy:** **96.88%**  
+- **Test Accuracy:** **96.62%**  
+- **ROC AUC:** **0.9922**  
+- **Average Precision (PR):** **0.9913**
+
+- The feature space shows clear separation between classes, indicating effective domain alignment and minimal subject-specific leakage.
