@@ -39,7 +39,7 @@ We adopt the classic DANN architecture with three components:
 
 ---
 
-## Results
+## Results (on a subset of HCP data)
 - **Validation Accuracy:** **96.88%**  
 - **Test Accuracy:** **96.62%**  
 - **ROC AUC:** **0.9922**  
