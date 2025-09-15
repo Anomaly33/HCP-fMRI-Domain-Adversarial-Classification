@@ -48,6 +48,7 @@ We adopt the classic DANN architecture with three components:
 - **Average Precision (PR):** **0.9913**
 
 - The feature space shows clear separation between classes, indicating effective domain alignment and minimal subject-specific leakage.
+  
 ![t-SNE Visualization](results/t-SNE_visual.png)
 
 ## ⚙️ Setup
