@@ -55,7 +55,7 @@ We adopt the classic DANN architecture with three components:
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/Anomaly33/hcp-fmri-domain-adversarial-classification.git
+git clone https://github.com/Anomaly33/HCP-fMRI-Domain-Adversarial-Classification.git
 cd hcp-fmri-domain-adversarial-classification
 ```
 ### 2. Create Environment
